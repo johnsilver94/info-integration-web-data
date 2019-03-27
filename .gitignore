@@ -63,3 +63,7 @@ typings/
 
 # txt files
 *.txt
+
+# Intelij DataGrip files
+.idea
+

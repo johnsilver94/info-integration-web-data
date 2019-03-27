@@ -32,3 +32,12 @@ Information Integration and Web of Data homework (Oracle Federated database).
    - node-mongo-service Subproject
 3. Connect to create earlier databases
    - FDB.sql
+   
+   
+### Part III
+
+1. OLAP(Queries)
+    -   Group by/Having(2)
+    -   Cube
+    -   Rollup
+    -   Grouping Sets

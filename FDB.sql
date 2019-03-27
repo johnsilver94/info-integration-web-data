@@ -21,17 +21,17 @@ select * from "AUTOPOLICY"@PostgresDB;
 
 
 ---Mongo LINK
+
 DROP DATABASE LINK MongoDB;
 CREATE DATABASE LINK MongoDB USING 'MONGODB';
 
-SELECT * FROM policy_vehicles@MongoDB;
-
+SELECT * FROM "policy_vehicles"@MongoDB;
 
 
 
 ---EXTERNAL CSV
 CREATE OR REPLACE DIRECTORY csv_ds
-    AS 'C:\Users\silver_fang\Desktop\Information Integration and Web of Data Homework\csv_ds';
+    AS 'C:\Users\silver_fang\Desktop\info-integration-web-data\csv_ds';
 GRANT ALL ON DIRECTORY csv_ds TO PUBLIC;
 
 DROP TABLE  TravelPolicy_Destinations;
@@ -121,7 +121,7 @@ SELECT get_rest_data('http://localhost:8080/vehicles', 'application/json') from 
 
 select JSON_QUERY(
     get_rest_data('http://localhost:8080/vehicles', 'application/json') ,
-    '$.policy_vehicles[2].vehicles[1]') doc from dual;
+    '$.policy_vehicles[2]') doc from dual;
 --- Direct Query to REST json data--------------------------------------------------------------------------------------------------
 with
 json as
@@ -131,15 +131,15 @@ json as
 SELECT policyid,in_leasing,manufacturer,model,observations,security_system,type,year,value
 FROM  JSON_TABLE( (select doc from json) , '$[*]'
             COLUMNS (
-              policyid      PATH '$.policyid',
-              in_leasing     PATH '$.in_leasing',
-              manufacturer   PATH '$.manufacturer',
-              model   PATH '$.model',
-              observations   PATH '$.observations',
-              security_system   PATH '$.security_system',
-              type   PATH '$.type',
-              year   PATH '$.year',
-              value   PATH '$.value')
+              policyid NUMBER(19,2) PATH '$.policyid',
+              in_leasing NUMBER(1,0) PATH '$.in_leasing',
+              manufacturer  VARCHAR2(255 CHAR) PATH '$.manufacturer',
+              model VARCHAR2(255 CHAR)  PATH '$.model',
+              observations VARCHAR2(255 CHAR) PATH '$.observations',
+              security_system NUMBER(1,0) PATH '$.security_system',
+              type VARCHAR2(255 CHAR)  PATH '$.type',
+              year  NUMBER(4,0) PATH '$.year',
+              value NUMBER(6,2)  PATH '$.value')
 );
 
 --------------------------------------------------------------------------------------------------------------------------------
@@ -152,15 +152,15 @@ with json as
 SELECT policyid,in_leasing,manufacturer,model,observations,security_system,type,year,value
 FROM  JSON_TABLE( (select doc from json) , '$[*]'
             COLUMNS (
-              policyid      PATH '$.policyid',
-              in_leasing     PATH '$.in_leasing',
-              manufacturer   PATH '$.manufacturer',
-              model   PATH '$.model',
-              observations   PATH '$.observations',
-              security_system   PATH '$.security_system',
-              type   PATH '$.type',
-              year   PATH '$.year',
-              value   PATH '$.value')
+              policyid NUMBER(19,2) PATH '$.policyid',
+              in_leasing NUMBER(1,0) PATH '$.in_leasing',
+              manufacturer  VARCHAR2(255 CHAR) PATH '$.manufacturer',
+              model VARCHAR2(255 CHAR)  PATH '$.model',
+              observations VARCHAR2(255 CHAR) PATH '$.observations',
+              security_system NUMBER(1,0) PATH '$.security_system',
+              type VARCHAR2(255 CHAR)  PATH '$.type',
+              year  NUMBER(4,0) PATH '$.year',
+              value NUMBER(6,2)  PATH '$.value')
 );
 SELECT * FROM vehicles_view;
 
@@ -179,15 +179,15 @@ CREATE OR REPLACE VIEW vehicles_view AS
 SELECT policyid,in_leasing,manufacturer,model,observations,security_system,type,year,value
 FROM  JSON_TABLE( (select doc from vehicles_raw) , '$[*]'
             COLUMNS (
-              policyid      PATH '$.policyid',
-              in_leasing     PATH '$.in_leasing',
-              manufacturer   PATH '$.manufacturer',
-              model   PATH '$.model',
-              observations   PATH '$.observations',
-              security_system   PATH '$.security_system',
-              type   PATH '$.type',
-              year   PATH '$.year',
-              value   PATH '$.value')
+              policyid NUMBER(19,2) PATH '$.policyid',
+              in_leasing NUMBER(1,0) PATH '$.in_leasing',
+              manufacturer  VARCHAR2(255 CHAR) PATH '$.manufacturer',
+              model VARCHAR2(255 CHAR)  PATH '$.model',
+              observations VARCHAR2(255 CHAR) PATH '$.observations',
+              security_system NUMBER(1,0) PATH '$.security_system',
+              type VARCHAR2(255 CHAR)  PATH '$.type',
+              year  NUMBER(4,0) PATH '$.year',
+              value NUMBER(6,2)  PATH '$.value')
 );
 
 SELECT * FROM vehicles_view;
