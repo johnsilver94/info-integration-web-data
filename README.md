@@ -41,3 +41,8 @@ Information Integration and Web of Data homework (Oracle Federated database).
     -   Cube
     -   Rollup
     -   Grouping Sets
+    
+### Part IV (Apex)
+
+### Part V (REST service)
+see /REST-service

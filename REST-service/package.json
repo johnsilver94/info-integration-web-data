@@ -3,7 +3,7 @@
   "description": "",
   "version": "1.0.0",
   "main": "server.js",
-  "repository": "https://github.com/silverfang94/node-mongo-service.git",
+  "repository": "https://github.com/silverfang94/info-integration-web-data.git",
   "author": "silverfang94 <32561429+silverfang94@users.noreply.github.com>",
   "license": "MIT",
   "keywords": [
