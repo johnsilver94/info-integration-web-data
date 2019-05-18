@@ -1,0 +1,36 @@
+{
+  "name": "insurance-app-rest-service",
+  "description": "",
+  "version": "1.0.0",
+  "main": "server.js",
+  "repository": "https://github.com/silverfang94/node-mongo-service.git",
+  "author": "silverfang94 <32561429+silverfang94@users.noreply.github.com>",
+  "license": "MIT",
+  "keywords": [
+    "rest service",
+    "rest",
+    "service",
+    "mongo",
+    "postgresql",
+    "oracle",
+    "knex.js"
+  ],
+  "scripts": {
+    "dev": "nodemon server.js"
+  },
+  "devDependencies": {
+    "eslint": "^5.16.0",
+    "eslint-config-prettier": "^4.3.0",
+    "eslint-plugin-node": "^9.0.1",
+    "nodemon": "^1.19.0"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "dotenv": "^8.0.0",
+    "express": "^4.17.0",
+    "knex": "^0.17.0-next3",
+    "mongoose": "^5.5.9",
+    "oracledb": "^3.1.2",
+    "pg": "^7.11.0"
+  }
+}

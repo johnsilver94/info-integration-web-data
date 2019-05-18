@@ -34,9 +34,9 @@ CREATE OR REPLACE DIRECTORY csv_ds
     AS 'C:\Users\silver_fang\Desktop\info-integration-web-data\csv_ds';
 GRANT ALL ON DIRECTORY csv_ds TO PUBLIC;
 
-DROP TABLE  TravelPolicy_Destinations;
+DROP TABLE  "TravelPolicy_Destinations";
 
-CREATE TABLE TravelPolicy_Destinations (
+CREATE TABLE "TravelPolicy_Destinations" (
   "POLICY_ID" NUMBER(19,2) NOT NULL,
   "COUNTRY" VARCHAR2(255 CHAR) NOT NULL
 )
@@ -53,7 +53,7 @@ ORGANIZATION EXTERNAL (
 REJECT LIMIT UNLIMITED;
 
 
-SELECT * FROM TravelPolicy_Destinations;
+SELECT * FROM "TravelPolicy_Destinations";
 
 
 ---------------------------------------------User privileges-------------------------------------------------
@@ -191,6 +191,10 @@ FROM  JSON_TABLE( (select doc from vehicles_raw) , '$[*]'
 );
 
 SELECT * FROM vehicles_view;
+
+
+
+-------------------------------------------------------------------------------------------
 
 
 
