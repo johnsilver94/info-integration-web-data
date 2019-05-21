@@ -14,12 +14,9 @@ mongoose.connection
     console.log(`Connected to ${info.host}:${info.port}/${info.name}`);
   });
 
-// mongoose.connect(config.MONGO_URL, {
-//   useNewUrlParser: true
-// });
-// mongoose.connect('mongodb://localhost/mongo', {
-//   useNewUrlParser: true
-// });
+mongoose.connect(config.MONGO_URL, {
+  useNewUrlParser: true
+});
 
 //express
 const app = express();
